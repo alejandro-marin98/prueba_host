@@ -1,0 +1,33 @@
+{% extends 'base.html' %}  
+
+{% block content %}  
+
+<style>
+  #tTabLibros_wrapper {
+    
+  }
+
+  
+</style>
+
+<main>
+  
+  <div class = "login">  
+    
+      {% if msg %}  
+          <label for="">{{msg}}</label> 
+      {% endif %} 
+    
+    <h1>Este es el home equisde</h1>
+  </div>
+
+  <form action="/profile/" method="post">
+    {% csrf_token %}
+    <input type="radio" name="username" value="alejandromm" id="" checked>
+    <input type="submit" value="Probar">
+  </form>
+</main>
+
+
+  
+{% endblock content %}
