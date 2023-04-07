@@ -27,7 +27,25 @@ def isFriendOf(usr_1, usr_2):
 
 def getSolicitudesByUsername(username):
     solicitudes = Solicitudes.objects.filter(usr_recibe=username, estado='PENDIENTE')
-    return solicitudes
+    ok = []
+
+    for sol in solicitudes:
+        if sol.usr_envia == username:
+            ok.append(
+                {
+                    'usuario': sol.usr_recibe,
+                    'id': sol.id_solicitud
+                }
+            )
+        else:
+            ok.append(
+                {
+                    'usuario': sol.usr_envia,
+                    'id': sol.id_solicitud
+                }
+            )
+    
+    return ok
 
 # def getFriendsListByUsername(username):
 #     accepted = Solicitudes.objects.all().select_related('usr_recibe').filter(usr_recibe=username).filter(estado='ACEPTADA')

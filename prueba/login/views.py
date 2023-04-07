@@ -10,6 +10,7 @@ from django.http import HttpResponse
 
 from solicitudes.views import isFriendOf, getFriendListsByUsername
 from gestionLibros.views import getLibrosByUsername
+from datetime import date
 
 
 # from django.http import HttpResponse
@@ -74,27 +75,38 @@ def profile(request):
 
     if not request.user.is_authenticated and not username:
         return redirect('/login')
-
-    if (not request.user.is_authenticated) and username:
-        match = User.objects.filter(username=username)[0]
-        return render(request, 'miPerfil.html', {'user': match})
-
     
     if request.user.is_authenticated and not username:
         libros = getLibrosByUsername(request.user.username)
-        return render(request, 'miPerfil.html', {'user': request.user, 'libros': libros, 'mostrar': True})
+        fecha = request.user.date_joined
+        fecha_esp =fecha.strftime('%d-%m-%Y')
+        return render(request, 'miPerfil.html', {'user': request.user, 'libros': libros, 'mostrar': True,
+                                                  'fecha_union': fecha_esp})
+
+    
+    match = User.objects.filter(username=username)[0]
+    fecha = match.date_joined
+    fecha_esp =fecha.strftime('%d-%m-%Y')
+
+    print(fecha_esp)
+
+    if (not request.user.is_authenticated) and username:
+        match = User.objects.filter(username=username)[0]
+        return render(request, 'miPerfil.html', {'user': match, 'fecha_union': fecha_esp})
+    
 
     match = User.objects.filter(username=username)[0]
     libros = getLibrosByUsername(match.username)
     if match == request.user:
-        return render(request, 'miPerfil.html', {'user': match, 'libros': libros, 'mostrar': True})
+        return render(request, 'miPerfil.html', {'user': match, 'libros': libros, 'mostrar': True,
+                                                 'fecha_union': fecha_esp})
     
     estado = isFriendOf(username, request.user.username)
 
     if estado:
-        return render(request, 'miPerfil.html', {'user': match, 'libros': libros,  'mostrar': True})
+        return render(request, 'miPerfil.html', {'user': match, 'libros': libros,  'mostrar': True, 'fecha_union': fecha_esp})
     
-    return render(request, 'miPerfil.html', {'user': match, 'libros': libros, 'input': True})
+    return render(request, 'miPerfil.html', {'user': match, 'libros': libros, 'input': True, 'fecha_union': fecha_esp})
 
   
 def friends(request):

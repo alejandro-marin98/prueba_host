@@ -8,14 +8,19 @@ import re
 class RegisterForm(forms.ModelForm):
     username = forms.CharField(label="Nombre de usuario:", max_length=20) 
     password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
-    email = forms.EmailField(max_length=50)
+    email = forms.EmailField(max_length=50, required=None)
+    biografia = forms.CharField(widget=forms.Textarea(attrs={"rows":"5"}), max_length=1000, label='Sobre tí',
+                                required=False)
     class Meta:
         model = User
-        fields = ["username", "password", "email"]
+        fields = ["username", "password", "email", "biografia"]
         db_table = 'login_user'
 
     def clean_username(self):
         username = self.cleaned_data['username']
+        if len(username) < 6:
+            raise forms.ValidationError('* El nombre debe de tener una longitud de al menos 6 caracteres.')
+
         username_taken = User.objects.filter(username=username).exists()
         if username_taken:
             raise forms.ValidationError('* El nombre de usuario ya está en uso.')
@@ -25,7 +30,7 @@ class RegisterForm(forms.ModelForm):
         pw = self.cleaned_data['password']
         
         if len(pw) < 6:
-            raise forms.ValidationError('* La contraseña debe de tener una longitud de al menos 6 caracteres alfanuméricos.')        
+            raise forms.ValidationError('* La contraseña debe de tener una longitud de al menos 6 caracteres.')        
         return pw
     def clean_email(self):
         email_inp = self.cleaned_data.get('email')
@@ -39,6 +44,7 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError('* Correo ya registrado.')             
 
         return email_inp
+
 
 
 class FormularioLogin(forms.Form):

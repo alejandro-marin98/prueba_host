@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Libros, Listas, Opiniones
 from django.http import HttpResponse
-
+import time
 def getLibrosByUsername(username):
     try:
         return Listas.objects.all().select_related('user', 'book').filter(user=username).exclude(estado='sin_guardar')
@@ -38,11 +38,9 @@ def showBooks(request):
 
 
 def getBooks(_request):
-    # Saco los datos de la base de datos
+    time.sleep(1)
     libros = list(Libros.objects.values())
-    # Hago un diccionario con formato JSON e incluyo los libros
     data = {'libros': libros}
-    # Devuelvo una respuesta en formato JSON
     return JsonResponse(data)
 
 

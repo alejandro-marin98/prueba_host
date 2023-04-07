@@ -82,7 +82,7 @@
         {% if user.is_authenticated %}
         
         <div class="no-amigos esconder desaparecer">
-          <h1 class="title">MI LISTA</h1>
+          <h1 class="title">Otros usuarios</h1>
             <table class="table-no_amigos" id="tabla-libros" style="width: 100%;">
               <thead>
                 <tr>
@@ -127,10 +127,5 @@
             </table> 
         </div>
         {% endif %}
-        <form action="/profile/" method="post">
-          {% csrf_token %}
-          <input type="radio" name="username" value="fran17" id="" checked>
-          <input type="submit" value="Probar">
-        </form>
       </main>
 {% endblock %}

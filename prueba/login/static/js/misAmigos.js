@@ -31,11 +31,10 @@ async function setup() {
             // Idioma
             language: {
                 lengthMenu: "Mostrar _MENU_ registros por página",
-                zeroRecords: "No se han encontrado libros.",
-                info: "Mostrando _START_ - _END_ de _TOTAL_ libros",
-                infoEmpty: "Ningún libro encontrado.",
+                zeroRecords: "No se han encontrado usuarios.",
+                info: "Mostrando _START_ - _END_ de _TOTAL_ usuarios",
+                infoEmpty: "Ningún usuario encontrado.",
                 infoFiltered: "(filtrados desde _MAX_ registros totales)",
-                search: "Buscar por ISBN o título:",
                 loadingRecords: "Cargando...",
                 paginate: {
                     first: "Primero",
@@ -47,6 +46,9 @@ async function setup() {
             },
 
             scrollX: true,
+            "activate": function(event, ui) {
+                $( $.fn.dataTable.tables( true ) ).DataTable().columns.adjust();
+            }
 
 
         };

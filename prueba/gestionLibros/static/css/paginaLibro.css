@@ -80,7 +80,8 @@ td {
     padding: 15px 0;
     margin-bottom: 100px;
     border-radius: 10px !important;
-    min-width: 70% !important;
+    min-width: 60% !important;
+    max-width: 60% !important;
 }
 
 .container-opinions {
@@ -162,7 +163,7 @@ td {
 }
 
 .form-control {
-    width: 100% !important;
+    width: 70% !important;
 }
 
 .form .btn {
@@ -284,11 +285,15 @@ select {
 }
 
 .container-opinions{
-    width: 90%;
+    width: 100% !important;
 }
 
-.container-opinions div{
-    width: 100%;
+/* .container-opinions div{
+    width: 70% !important;
+} */
+
+.form-outline {
+    width: 100% !important;
 }
 
 .container-opinions input{
@@ -306,9 +311,19 @@ input[type="radio"] {
 
 
 @media screen and (max-width: 768px) {
-    .container-opinions div{
+    /* .container-opinions div{
         width: 100%;
+    } */
+    .dataTables_wrapper {
+        width: 90% !important;
+        min-width: 90% !important;
     }
+
+    .form-control {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
     h6 {
         margin-bottom: 50px;
     }

@@ -13,28 +13,22 @@ const template = `
             overflow: hidden;
         }
 
-        div.spinner {
-            border-top: solid 10px red;
-            border-bottom: solid 10px green;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            animation: giro 2s linear 0s infinite;
+        .espiner {
+            width: 200px !important;
+            height: 200px !important;
+
         }
 
-        @keyframes giro {
-            from {
-                transform: rotate(0deg);
-            }
 
-            to {
-                transform: rotate(360deg);
-            }
-        }
     </style>
 
     <div id="tDlgSpinner" class="container-spinner">
-        <div class="spinner"></div>
+        <div class="spinner">
+        <div class="spinner-border text-primary espiner" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+        
+        </div>
     </div id="">
 `;
 

@@ -103,6 +103,11 @@ td::before, td::after {
     display: none !important;
 }
 
+.buttons form button {
+    font-size: 1.4rem;
+    color: white;
+}
+
 
 
 
@@ -117,6 +122,10 @@ td::before, td::after {
     {
         font-size: 1.2rem !important;
 
+    }
+
+    .dataTables_scroll {
+        border-radius: 20px !important;
     }
 
     
@@ -174,9 +183,9 @@ td::before, td::after {
         overflow: scroll !important;
     }
 
-    #tTabLibros_wrapper * {
+    /* #tTabLibros_wrapper * {
         font-size: 0.6rem !important;
-    }
+    } */
 
     #tTabLibros_wrapper {
         display: flex;
@@ -209,13 +218,8 @@ td::before, td::after {
         width: 40% !important;
     }
 
-    .dataTables_filter {
-        border-radius: 10px 10px 0 0 !important;
-    }
-
-    .dataTables_scroll {
-        padding: 0 5px 40px 5px !important;
-        border-radius: 0 0 10px 10px;
+    .dataTables_scrollHead {
+        border-radius: 20px !important;
     }
 
     .dataTables_scroll,

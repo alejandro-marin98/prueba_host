@@ -4,6 +4,18 @@
     padding: 0;
 }
 
+.dataTables_info,
+.dataTables_paginate {
+    width: 90% !important;
+    align-self: flex-end;
+}
+
+.dataTables_paginate {
+    align-self: flex-start;
+
+}
+
+
 .desaparecer {
     display: none !important;
 }
@@ -90,7 +102,7 @@ main ul {
 
 li label {
     color: black;
-    padding: 20px !important;
+    padding: 10px !important;
 }
 
 li {
@@ -98,7 +110,7 @@ li {
 }
 
 main ul li:hover {
-    background: rgb(16, 44, 85, 0.65) !important;
+    background-color: rgba(84, 143, 225, 0.758) !important;
     color: aliceblue !important;
 }
 
@@ -122,13 +134,12 @@ main input[type="submit"] {
 main .head {
     align-self: center;
     border: solid 1px white;
-    margin: 0;
     padding: 10px;
     border-radius: 0;
     font-weight: bold;
     max-width: 95%;
     width: 60%;
-    margin-bottom: 30px;
+    margin-bottom: 60px !important;
     font-size: 3rem;
     border-radius: 7px 7px 0 0;
 }
@@ -136,7 +147,7 @@ main .head {
 main ul {
     border-radius: 0 0 7px 7px;
     margin-bottom: 20px;
-    background-color: rgba(31, 77, 146, 0.764);
+    background-color: rgba(84, 143, 225, 0.758);
     border-radius: 20px;
 }
 
@@ -157,6 +168,10 @@ input[type="submit"] {
     border-bottom: solid 1px white;
 }
 
+.info, .about {
+    margin-bottom: 40px !important;
+}
+
 .container-data {
     width: 100%;
 }
@@ -167,7 +182,7 @@ input[type="submit"] {
 }
 
 p {
-    width: 70%;
+    width: 50%;
     text-align: center;
     align-self: center;
     font-size: 1.8rem;
@@ -201,11 +216,16 @@ p {
 }
 
 .dataTables_wrapper {
+    background-color: rgba(31, 77, 146, 0.764);
+    padding: 15px;
     width: 80% !important;
     display: flex;
     flex-direction: column;
     justify-content: center !important;
     justify-items: center !important;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    border: solid 1px grey;
 }
 
 .dataTables_length,
@@ -213,6 +233,10 @@ p {
 .dataTables_scroll {
     width: 100% !important;
     align-self: center !important;
+}
+
+.dataTables_length {
+    display: none !important;
 }
 
 .dataTables_filter,
@@ -228,11 +252,13 @@ p {
     width: 90%;
 }
 
-
-
-
 .table-libros {
     width: 100% !important;
+}
+
+.info th,
+.info td {
+    font-size: 1.2rem;
 }
 
 /* .dataTables_scroll * {
@@ -248,7 +274,10 @@ p {
 } */
 
 @media screen and (max-width: 768px) {
-
+    .info th,
+    .info td {
+        font-size: 1rem;
+    }
     
     .table-info tbody {
         width: 100%;
@@ -282,7 +311,6 @@ p {
 
     .table-info td {
         font-weight: bold;
-
     }
 
     .table-info {
@@ -292,7 +320,7 @@ p {
 
     main ul {
         align-self: center;
-        margin: 0;
+        margin-bottom: 50px;
         padding: 10px;
         width: 100%;
         border-radius: 10px !important;
@@ -314,7 +342,7 @@ p {
 
     li label {
         color: whitesmoke;
-        font-size: .9rem;
+        font-size: 1.1rem;
         padding: 5px;
     }
 
@@ -326,9 +354,11 @@ p {
     }
     
     .dataTables_wrapper {
-        background-color: rgba(31, 77, 146, 0.764) !important;
+        background-color: rgba(84, 143, 225, 0.758);
         width: 90% !important;
         border-radius: 20px !important;
+        padding: 0 !important;
+        margin-bottom: 50px !important;
     }
 
     .paginate_button a {

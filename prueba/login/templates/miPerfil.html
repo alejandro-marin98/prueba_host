@@ -29,13 +29,13 @@
           {% else %}
            <h1 class="head">Perfil de {{user.username}}</h1>
           {% endif %}
-        {% if input %}
+        {% comment %} {% if input %}
           <form action="/profile/" method="post" class="form-peticion">
             {% csrf_token %}
             <input type="radio" name="username" value="fran17" checked>
             <input type="submit" value="Enviar">
           </form>
-        {% endif %}
+        {% endif %} {% endcomment %}
         <ul>
           <li>
             <label for="info" id="label-info">Información</label>
@@ -66,12 +66,8 @@
                 <td>{{user.email}}</td>
               </tr>
               <tr>
-                <th>Fecha de nacimiento</th>
-                <td>{{user.fecha_nac}}</td>
-              </tr>
-              <tr>
-                <th>Tiempo registrado:</th>
-                <td>td</td>
+                <th>Fecha de unión:</th>
+                <td>{{fecha_union}}</td>
               </tr>
             </tbody>
           </table>
@@ -81,7 +77,12 @@
         {% comment %} <input type="radio" name="radios" id="about"> {% endcomment %}
       <div class="about esconder desaparecer">
           <h1 class="title">Sobre mí</h1>
-          <p class="">{{ user.biografia }}</p>  
+          {% if user.biografia %}
+            <p>{{ user.biografia }}</p>
+            {% else %}
+            <p>No se ha encontrado ninguna biografía de este usuario.</p>
+          {% endif %}
+          
         </div>
       </div>
 
@@ -92,7 +93,7 @@
         {% if user.is_authenticated %} {% if mostrar %}
         
         <div class="list esconder desaparecer">
-          <h1 class="title"> MI LISTA</h1>
+          <h1 class="title"> Mi lista de libros</h1>
             <table class="table-libros" id="tabla-libros" style="width: 100%;">
               <thead>
                 <tr>
@@ -115,10 +116,5 @@
             </table> 
         </div>
         {% endif %}{% endif %}
-        <form action="/profile/" method="post">
-          {% csrf_token %}
-          <input type="radio" name="username" value="fran17" id="" checked>
-          <input type="submit" value="Probar">
-        </form>
       </main>
 {% endblock %}

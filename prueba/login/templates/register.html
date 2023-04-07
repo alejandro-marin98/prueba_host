@@ -1,61 +1,17 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
-  <main>
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">  
+<main>
     <div class="login">
       {% if msg %}
         <label for="">{{ msg }}</label>
       {% endif %}
       <style>
-        .form-group label {
-          color: white !important;
-        }
-        
-        nav {
-          grid-area: nav;
-        }
-        h1 {
-          text-align: center;
-        }
-        .register-form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          margin-bottom: 300px;
-        }
-
-        main {
-          padding-top: 70px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-        
-        .register-form > div {
-          display: flex;
-          font-size: 2rem;
-          gap: 30px;
-          flex-direction: column;
-          width: 300px;
-        }
-        
-        .register-form {
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .register-form input {
-          width: 100%;
-          border: solid 1px grey;
-          font-size: 1.5rem
-        }
-        .invalid-feedback {
-          font-size: 1.2rem;
-          color: red !important;
-        }
+       
       </style>
       <form method="post" class="register-form">
         {% csrf_token %}
@@ -64,7 +20,7 @@
           <tr>
             <td></td>
             <td>
-              <input type="submit" name="submit" value="Registrar" />
+              <input type="submit" name="submit" value="Registrar" class="register"/>
             </td>
           </tr>
         </table>

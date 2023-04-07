@@ -3,11 +3,11 @@ from login.models import User
 
 class Libros(models.Model):
     isbn = models.CharField(null=False, primary_key=True, max_length=13)
-    titulo = models.CharField(null=False, unique=True, max_length=30)
+    titulo = models.CharField(null=False, unique=True, max_length=150)
     paginas = models.IntegerField(null=False)
     autor = models.CharField(null=False, max_length=30)
     foto = models.ImageField(upload_to="images/", null=True, blank=True)
-    sinopsis = models.CharField(null=True, blank=True, max_length=300)
+    sinopsis = models.CharField(null=True, blank=True, max_length=10000)
     class Meta:
         db_table = 'libros'
     

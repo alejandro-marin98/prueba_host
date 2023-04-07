@@ -83,6 +83,10 @@ main h1 {
 
 @media screen and (max-width: 768px) {
 
+    #tabla-libros_filter {
+        display: none;
+    }
+
     #tTabLibros_wrapper td,
     #tTabLibros_wrapper th {
         font-size: 1.2rem !important;
@@ -174,7 +178,7 @@ main h1 {
     }
 
     .dataTables_scroll {
-        padding: 0 5px 40px 5px !important;
+        padding: 0 20px 40px 20px !important;
         border-radius: 0 0 10px 10px;
     }
 
